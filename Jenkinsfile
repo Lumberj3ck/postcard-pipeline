@@ -16,7 +16,9 @@ pipeline {
         stage('Test') {
             steps {
                 dir('project'){
-                    sh 'docker build .'
+                    sh 'docker build . -t postcard-api'
+                    sh 'docker run --name postcard-api '
+                    sh 'docker exec postcard-api pytest'
                 }
             }
         }
