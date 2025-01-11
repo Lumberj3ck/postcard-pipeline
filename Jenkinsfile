@@ -11,12 +11,13 @@ pipeline {
                         branch: 'main',
                         url: 'git@github.com:Lumberj3ck/valentiny_api.git'
                 }
-                sh 'ls'
             }
         }
         stage('Test') {
             steps {
-                sh 'docker build'
+                dir('project'){
+                    sh 'docker build .'
+                }
             }
         }
         stage('Build') {
