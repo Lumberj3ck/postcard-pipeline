@@ -17,7 +17,7 @@ pipeline {
             steps {
                 dir('project'){
                     sh 'docker build . -t postcard-api'
-                    sh 'docker run --name postcard-api '
+                    sh 'docker run --name postcard-api postcard-api'
                     sh 'docker exec postcard-api pytest'
                 }
             }
